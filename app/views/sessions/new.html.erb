@@ -1,0 +1,11 @@
+<h1>Sessions#new</h1>
+
+<% if signed_in? %>
+	You are signed in as: <%= current_user.name %>
+<% end %>
+
+<%= form_for :session, :url => { :action => :create } do |f| %>
+	<%= f.text_field :name %>
+	<%= f.submit "Log in" %>
+
+<% end %>
