@@ -1,0 +1,10 @@
+This is the event page for <%= @event.description %>
+
+<% if signed_in? %>
+	You are signed in as: <%= link_to current_user.name, current_user %><br>
+	Creator: <%= @event.creator.name %><br>
+	Attendees: 
+	<% @event.attendees.each do |attendee| %>
+		<%= link_to attendee.name, attendee %><br>
+	<% end %>
+<% end %>

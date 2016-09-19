@@ -1,0 +1,23 @@
+This is my page for event indexes.
+
+<% if signed_in? %>
+	You are signed in as: <%= link_to current_user.name, current_user %>
+<% end %>
+<br>
+
+<% if @events %>
+	<% @events.each do |event| %>
+		<%= link_to event.description, event %></br>
+	<% end %>
+<% end %>
+
+<br>
+Upcoming events: 
+<% @upcoming.each do |event| %>	
+	<%= link_to event.description, event %> in <%= event.date %><br>
+<% end %>
+<br>
+Past events: 
+<% @past.each do |event| %>	
+	<%= link_to event.description, event %> in <%= event.date %><br>
+<% end %>

@@ -1,5 +1,19 @@
-This is my show page.
+<b>This is the page for <%= @user.name %></b><br>
 
 <% if signed_in? %>
-	You are signed in as: <%= current_user.name %>
+	You are signed in as: <%= link_to current_user.name, current_user %>
+	<% current_user.created_events.each do |event| %>
+		<%= event.date %>
+		<%= event.location %>
+	<% end %>
+<% end %>
+<br>
+List of upcoming events: 
+<% @user.upcoming_events.each do |event| %>
+	<%= event.description %>: <%= event.date %><br>
+<% end %>
+<br>
+List of previous events: 
+<% @user.previous_events.each do |event| %>
+	<%= event.description %>: <%= event.date %><br>
 <% end %>
